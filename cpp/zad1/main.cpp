@@ -3,19 +3,20 @@
 using namespace std;
 
 int main(){
-	cout<<"podaj wiek"<<endl;
-	int x;
-	cin>>x;
-	cout<<"podaj wiek nastepnej osoby"<<endl;
-	int y;
-	cin>>y;
-	if(x>y){
-		cout<<"pierwsza osoba jest starsza"<<endl;
+	char x='e';
+	int y = 0;
+	int z= 0;
+	while(x!='n'){
+		cout<<"podaj liczbę: "<<endl;
+		cin>>z;
+		if(z>=0){
+			y=y+z;
+			cout<<"czy dodać następną liczbę?((t)ak/(n)ie)"<<endl;
+			cin>>x;
 		}else{
-			if(y>x){
-				cout<<"druga osoba jest starsza"<<endl;
-				}else{
-				cout<<"rowno"<<endl;
-				}
+			cout<<"nie podawaj liczb mniejszych od 0!"<<endl;
+		}
+	}
+	cout<<"suma wynosi: "<<y<<endl;
 	return 0;
 }

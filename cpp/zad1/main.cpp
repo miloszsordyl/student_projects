@@ -1,22 +1,30 @@
 #include <iostream>
-
+#include <fstream>
 using namespace std;
 
 int main(){
-	char x='e';
-	int y = 0;
-	int z= 0;
-	while(x!='n'){
-		cout<<"podaj liczbę: "<<endl;
-		cin>>z;
-		if(z>=0){
-			y=y+z;
-			cout<<"czy dodać następną liczbę?((t)ak/(n)ie)"<<endl;
-			cin>>x;
-		}else{
-			cout<<"nie podawaj liczb mniejszych od 0!"<<endl;
-		}
+ string imie;
+ cout<<"podaj imie"<<endl;
+ cin>>imie;
+ string nazwisko;
+ cout<<"podaj nazwisko"<<endl;
+ cin>>nazwisko;
+ ofstream pliczek("pliczek.txt", ios::trunc);
+	 if(!pliczek.is_open()){
+	cout<<"pliczek nie otwarty";
+	}else{
+	 pliczek<<imie<<" ";
+	pliczek<<nazwisko;
+	pliczek.close();
 	}
-	cout<<"suma wynosi: "<<y<<endl;
-	return 0;
+ cout<<"czy chcesz coś dopisać?";
+ string odpowiedz;
+ cin>>odpowiedz;
+ fstream publiczek("pliczek.txt", ios::app | ios::out);
+	if(odpowiedz=="tak"){
+	cout<<"wpisz co chcesz napisać\n";
+	cin>>odpowiedz;
+	publiczek<<odpowiedz;
+	publiczek.close();
+	}
 }
